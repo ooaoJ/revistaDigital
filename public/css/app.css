@@ -1,0 +1,18 @@
+.auth-card{
+    width: 40%;
+}
+@media (max-width: 1020px){
+    .auth-card{
+        width: 65%;
+    }
+}
+@media (max-width: 760px){
+    .auth-card{
+        width: 70%;
+    }
+}
+@media (max-width: 550px){
+    .auth-card{
+        width: 85%;
+    }
+}
