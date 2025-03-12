@@ -2,6 +2,12 @@
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 <body class="h-100 d-flex flex-column align-items-center justify-content-center">
     <div class="background-color" id="bg1"></div>
+    <a class="button-top" id="button-access" href="{{route('tela-login')}}">
+        <button class="btn btn-outline-light btn-lg">Acessar</button>
+    </a>
+    <a class="button-top" id="button-register" href="{{route('tela-registro')}}">
+        <button class="btn btn-outline-light btn-lg">Cadastrar</button>
+    </a>
     <div class="content">
         <div class="top">
             <div class="divder">
@@ -25,8 +31,12 @@
                 <div class="card-info">
                     <p>Entre em contato conosco:</p>
                     <div class="social">
-                        <i class="bi bi-envelope"></i>
-                        <i class="bi bi-github"></i>
+                        <a href="https://github.com/ooaoJ" target="_blank">
+                            <i class="bi bi-github"></i>
+                        </a>
+                        <a href="#" target="_blank">
+                            <i class="bi bi-envelope"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -37,7 +47,20 @@
         </div>
         <div class="about">
             <h1>O futuro importa!</h1>
-            <img src="{{asset('images/noticia.png')}}" alt="">
+            <div class="about-content">
+                <div class="card-info">
+                    <p><i class="bi bi-arrow-clockwise"></i> Atualizações constantes.</p>
+                    <p><i class="bi bi-stars"></i> Exclusividade nos conteúdos.</p> 
+                    <p><i class="bi bi-search"></i> Novas funcionalidades sendo desenvolvidas.</p>
+                </div>
+                <img src="{{asset('images/noticia.png')}}" alt="">
+            </div>
+            <div class="about-access">
+                <p>Acesse agora e faça parte da nossa comunidade!</p>
+                <a href="{{route('tela-login')}}">
+                    <button class="btn btn-outline-light btn-lg">Acessar</button>
+                </a>
+            </div>
         </div>
     </div>
     <div class="background-container">
