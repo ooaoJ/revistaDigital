@@ -7,6 +7,11 @@ use App\Http\Controllers\NoticiaController;
 use App\Models\Usuario;
 
 Route::get('/', function () { return view('index'); })->name('index');
+
+
+
+
+
 Route::get('/login-page', function () { return view('auth.login'); })->name('tela-login');
 Route::get('/register-page', function () { return view('auth.register'); })->name('tela-registro');
 

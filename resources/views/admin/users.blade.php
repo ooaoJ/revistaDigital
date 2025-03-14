@@ -1,6 +1,6 @@
 @include('template.head')
 <body data-bs-theme="dark">
-    <div class="p-2">
+    <div>
         @include('template.nav')
         
         <main class="mt-3 container">

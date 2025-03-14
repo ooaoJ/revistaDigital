@@ -17,7 +17,10 @@ class AuthController extends Controller
             'password' => 'required|min:6',
         ], [
             'email.unique' => 'Este email já foi cadastrado.',
-            'password.min' => 'A senha deve conter no mínimo 6 caracteres.'
+            'password.min' => 'A senha deve conter no mínimo 6 caracteres.',
+            'email.required' => 'O email deve ser preenchido.',
+            'password.required' => 'A senha deve ser preenchida.',
+            'nome.required' => 'O nome deve ser preenchido.'
         ]);
 
         Usuario::create([
@@ -34,6 +37,9 @@ class AuthController extends Controller
         $request->validate([
             'email' => 'required|email',
             'password' => 'required|min:6',
+        ], [
+            'email.required' => 'O email deve ser preenchido.',
+            'password.required' => 'A senha deve ser preenchida.'
         ]);
 
         $usuario = Usuario::where('email', $request->email)->first();

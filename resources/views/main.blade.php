@@ -1,6 +1,6 @@
 @include('template.head')
-<body class="h-100" data-bs-theme="dark">
-    <div class="p-2 h-100">
+<body class="h-100">
+    <div class="h-100">
         @include('template.nav')
         
         <main class="mt-3 w-100 h-100 container h-75">

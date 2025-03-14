@@ -1,8 +1,45 @@
 @include('template.head')
-<body data-bs-theme="dark" class="d-flex align-items-center justify-content-center flex-column h-100">
+<body class="d-flex align-items-center justify-content-center flex-column h-100 auth-body">
     <a href="{{route('index')}}" class="fs-2 text-light" style="position: absolute; top: 0px; left: 10px;"><i class="bi bi-reply"></i></a>
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 1050;">
+        @error('nome')
+            <div class="mt-2 toast align-items-center text-bg-danger border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        {{ $message }}
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        @enderror
+    
+        @error('email')
+            <div class="mt-2 toast align-items-center text-bg-danger border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        {{ $message }}
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        @enderror
 
-    <div class="auth-card container border rounded d-flex flex-column align-items-center justify-content-center" style="height:400px; background-color: #292e33;">
+        @error('password')
+            <div class="mt-2 toast align-items-center text-bg-danger border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        {{ $message }}
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        @enderror
+    </div>
+    
+    <div class="auth-card container border rounded d-flex flex-column align-items-center justify-content-center" style="height:450px; background-color: #fff;">
+        <div class="auth-icon">
+            <img src="{{ asset('images/logo/logo-nexus.png') }}" alt="">
+        </div>
         <h1>Registro</h1>
 
         @if(session('success'))
@@ -16,15 +53,9 @@
             </div>
             <div class="mb-3 w-75">
                 <input type="email" name="email" class="form-control" placeholder="Email">
-                @error('email')
-                    <div class="alert alert-danger mt-2" role="alert">{{ $message }}</div>
-                @enderror
             </div>
             <div class="mb-3 w-75">
                 <input type="password" name="password" class="form-control" placeholder="Senha">
-                @error('password')
-                    <div class="alert alert-danger mt-2" role="alert">{{ $message }}</div>
-                @enderror
             </div>
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>

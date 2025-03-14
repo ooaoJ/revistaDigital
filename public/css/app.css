@@ -1,4 +1,5 @@
 .auth-card{
+    position: relative;
     width: 40%;
 }
 @media (max-width: 1020px){
@@ -15,4 +16,58 @@
     .auth-card{
         width: 85%;
     }
+}
+.auth-body{
+    background: linear-gradient(to right, #5170ff, #ff66c4);
+}
+.auth-icon{
+    background: linear-gradient(to right, #5170ff, #ff66c4);
+    border-radius: 50%;
+    border: 4px solid #fff;
+    min-width: 100px;
+    min-height: 100px;
+    position: absolute;
+    top: -60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.auth-icon img{
+    width: 75px;
+}
+.navbar{
+    background: linear-gradient(to right, #5170ff, #ff66c4);
+    height: 80px;
+}
+.home-nav{
+    margin-left: 20px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.home-nav img{
+    width: 60px;
+}
+.home-nav a{
+    color: #fff;
+    font-size: 22px;
+    font-weight: 500;
+}
+.botao-logout{
+    border: none;
+    background: transparent;
+    text-decoration: none;
+    text-transform: none;
+}
+.home-text{
+    text-decoration: none;
+}
+.leave-button{
+    padding-left: 9px;
+}
+#navbarSupportedContent{
+    width: 200px;
+}
+#dropdown{
+    position: absolute;
 }

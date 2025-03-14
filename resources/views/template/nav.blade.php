@@ -1,39 +1,38 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand text-primary" href="{{route('main-page')}}">Revista NextUs</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+      <div class="home-nav">
+        <img src="{{ asset('images/logo/logo-nexus.png') }}" alt="">
+        <a class="home-text" href="{{route('main-page')}}">Revista NextUs</a>
+      </div>
+      <div class=" d-flex align-items-center justify-content-end" id="navbarSupportedContent">
+        <div class="d-flex align-items-center gap-3">
+            <span class="text-light d-flex gap-1"><i class="bi bi-person-circle"></i>{{ Auth::user()->nome }}</span>
+        </div>
+        <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Opçoes
+            <a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-list fs-1 text-light"></i>
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu dropdown-menu-end" id="dropdown">
+                <li><a href="" class="dropdown-item"><i class="bi bi-person"></i> Meu perfil</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a href="" class="dropdown-item"><i class="bi bi-book"></i> Matérias</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a href="" class="dropdown-item"><i class="bi bi-people"></i> Aconteceu na escola</a></li>
+                <li><hr class="dropdown-divider"></li>
                 @if(Auth::user()->nivel === 4)
                     <li><a class="dropdown-item" href="{{route('painel-usuario')}}"><i class="bi bi-person-gear"></i> Gerenciar Usuários</a></li>
+                    <li><hr class="dropdown-divider"></li>
                 @endif
-                @if(Auth::user()->nivel >= 1)
-                    <li><a class="dropdown-item" href="{{route('painel-noticia')}}"><i class="bi bi-journal"></i> Criar Postagem</a></li>
-                @endif
-                @if(Auth::user()->nivel >= 2)
-                    <li><a class="dropdown-item" href="{{route('painel-noticias')}}"><i class="bi bi-newspaper"></i> Painel Noticias</a></li>
-                @endif
-              <li><a class="dropdown-item disabled" href="#">Em desenvolvimento...</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item disabled" href="#">Em desenvolvimento...</a></li>
+              <li>
+                <form action="{{ route('logout') }}" method="POST" class="dropdown-item leave-button">
+                  @csrf
+                  <button type="submit" class="botao-logout"><i class="bi bi-door-open"></i> Sair</button>
+                </form>
+              </li>
             </ul>
           </li>
         </ul>
-        
-        <div class="d-flex align-items-center gap-3">
-            <span class="text-light d-flex gap-1"><i class="bi bi-person-circle"></i>{{ Auth::user()->nome }}</span>
-            <form action="{{ route('logout') }}" method="POST">
-                @csrf
-                <button type="submit" class="btn btn-danger">Sair da Conta <i class="bi bi-x-lg"></i></button>
-            </form>
-        </div>
       </div>
     </div>
 </nav>
