@@ -71,3 +71,17 @@
 #dropdown{
     position: absolute;
 }
+.carousel{
+    width: 900px;
+    height: 360px;
+    overflow: hidden;
+}
+.carousel-item{
+    width: 100%;
+    height: 100%;
+}
+.carousel img{
+    width: 900px;
+    height: 360px;
+    object-fit: cover;
+}

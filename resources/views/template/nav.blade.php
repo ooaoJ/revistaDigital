@@ -5,9 +5,6 @@
         <a class="home-text" href="{{route('main-page')}}">Revista NextUs</a>
       </div>
       <div class=" d-flex align-items-center justify-content-end" id="navbarSupportedContent">
-        <div class="d-flex align-items-center gap-3">
-            <span class="text-light d-flex gap-1"><i class="bi bi-person-circle"></i>{{ Auth::user()->nome }}</span>
-        </div>
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item dropdown">
             <a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
