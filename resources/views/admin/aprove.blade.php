@@ -1,5 +1,5 @@
 @include('template.head')
-<body data-bs-theme="dark">
+<body>
     <div>
         @include('template.nav')
         

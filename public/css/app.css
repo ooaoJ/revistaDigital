@@ -36,7 +36,7 @@
     width: 75px;
 }
 .navbar{
-    background: linear-gradient(to right, #5170ff, #ff66c4);
+    background: #D472E7 !important;
     height: 80px;
 }
 .home-nav{
@@ -72,9 +72,14 @@
     position: absolute;
 }
 .carousel{
+    position: relative;
+    left: calc(50% - 450px);
+    top: 60px;
     width: 900px;
     height: 360px;
     overflow: hidden;
+    background-color: #e0e0e032;
+    margin-bottom: 120px;
 }
 .carousel-item{
     width: 100%;
@@ -85,3 +90,33 @@
     height: 360px;
     object-fit: cover;
 }
+.materia-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 120px;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.materia-circle {
+    width: 220px;
+    height: 220px !important;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.materia-circle .circle{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    background-color: red;
+}
+.materia-circle .circle img{
+    width: 100%;
+}
+
+/* configurando as imagens */

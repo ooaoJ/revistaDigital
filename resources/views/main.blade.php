@@ -1,6 +1,6 @@
 @include('template.head')
 <body class="h-100">
-    <div class="h-100">
+    <div class="w-100 h-100 body-container">
         @include('template.nav')
         
         <div id="carouselExample" class="carousel slide">
@@ -24,8 +24,59 @@
               <span class="visually-hidden">Next</span>
             </button>
           </div>
-        <main class="mt-3 w-100 h-100 container h-75">
-                
+        <main class="mt-3 w-100 h-100">
+          <section class="materias">
+            <div class="materia-group">
+              <div class="materia-circle">
+                <div class="circle">
+                  <img src="{{asset('images/materias/portugues.png')}}" alt="">
+                </div>
+                <p>Língua Portuguesa</p>
+              </div>
+              <div class="materia-circle">
+                <div class="circle">
+                  <img src="{{asset('images/materias/ingles.png')}}" alt="">
+                </div>
+                <p>Língua Inglesa</p>
+              </div>
+              <div class="materia-circle">
+                <div class="circle">
+                  <img src="{{asset('images/materias/artes.png')}}" alt="">
+                </div>
+                <p>Artes</p>
+              </div>
+              <div class="materia-circle">
+                <div class="circle">
+                  <img src="{{asset('images/materias/esportes.png')}}" alt="">
+                </div>
+                <p>Educação Física</p>
+              </div>
+              <div class="materia-circle">
+                <div class="circle">
+                  <img src="{{asset('images/materias/filosofia.png')}}" alt="">
+                </div>
+                <p>Filosofia</p>
+              </div>
+              <div class="materia-circle">
+                <div class="circle">
+                  <img src="{{asset('images/materias/sociologia.png')}}" alt="">
+                </div>
+                <p>Sociologia</p>
+              </div>
+              <div class="materia-circle">
+                <div class="circle">
+                  <img src="{{asset('images/materias/historia.png')}}" alt="">
+                </div>
+                <p>História</p>
+              </div>
+              <div class="materia-circle">
+                <div class="circle">
+                  <img src="{{asset('images/materias/matematica.png')}}" alt="">
+                </div>
+                <p>Matemática</p>
+              </div>
+            </div>
+          </section>
         </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

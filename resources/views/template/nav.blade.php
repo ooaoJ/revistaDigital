@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid d-flex align-items-center justify-content-between">
+<nav class="navbar navbar-expand-lg bg-body-tertiary w-100">
+    <div class="container-fluid d-flex align-items-center justify-content-between w-100">
       <div class="home-nav">
         <img src="{{ asset('images/logo/logo-nexus.png') }}" alt="">
         <a class="home-text" href="{{route('main-page')}}">Revista NextUs</a>

@@ -1,5 +1,5 @@
 @include('template.head')
-<body data-bs-theme="dark">
+<body>
     <div>
         @include('template.nav')
         
@@ -7,7 +7,7 @@
             <h1>Exibindo o Painel de Usuarios</h1>
             <p>Todos os usuarios irão aparecer abaixo no quadro.</p>
 
-            <table class="table table-dark table-striped">
+            <table class="table table-light table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
