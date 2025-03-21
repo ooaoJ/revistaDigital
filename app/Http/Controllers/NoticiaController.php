@@ -63,4 +63,9 @@ class NoticiaController extends Controller
         return view('admin.aprove', compact('noticias')); 
     }
 
+    public function getNoticiaTema($id)
+    {
+        
+    }
+
 }
