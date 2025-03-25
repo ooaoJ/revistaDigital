@@ -18,22 +18,12 @@
                     <textarea name="conteudo" id="conteudo" placeholder="Conteúdo da Notícia" class="form-control" style="height: 180px; resize: none;"></textarea>
                 </div>
                 <div class="mb-3 d-flex gap-5">
-                    <select name="materia" id="materia" class="form-select" required>
-                        <option value="0">-</option>
-                        <option value="1">Artes</option>
-                        <option value="2">Biologia</option>
-                        <option value="3">Educação Física</option>
-                        <option value="4">Filosofia</option>
-                        <option value="5">Física</option>
-                        <option value="6">Geografia</option>
-                        <option value="7">História</option>
-                        <option value="8">Ingles</option>
-                        <option value="9">Kids</option>
-                        <option value="10">Matemática</option>
-                        <option value="11">Português</option>
-                        <option value="12">Química</option>
-                        <option value="13">Sociologia</option>
-                    </select>
+                    <select name="materia_id" id="materia_id" class="form-select" required>
+                        <option value="">Selecione uma matéria</option>
+                        @foreach($materias as $materia)
+                            <option value="{{ $materia->id }}">{{ $materia->nome }}</option>
+                        @endforeach
+                    </select>                    
                     <input type="file" name="imagem" id="imagem" class="form-control" accept="image/*" required>
                 </div>
                 <button type="submit" class="btn btn-success">Publicar</button>

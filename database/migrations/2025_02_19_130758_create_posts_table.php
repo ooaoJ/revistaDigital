@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('titulo');
             $table->string('subtitulo');
             $table->text('conteudo');
-            $table->integer('materia')->default(0);
+            $table->unsignedBigInteger('materia_id')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->string('imagem');
             $table->unsignedBigInteger('user_id');

@@ -103,19 +103,17 @@
     flex-direction: column;
     align-items: center;
     height: auto;
-    /* margin-bottom: 200px; */
 }
 .materias p{
     font-size: 20px;
 }
-
 .materia-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 120px;
-    justify-content: center;
-    width: 100%;
-    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px; /* Reduzi o espaçamento */
+    justify-items: center; /* Alinha os itens ao centro da célula */
+    width: 80%; /* Reduzi a largura para evitar desalinhamento */
+    margin: 0 auto; /* Centraliza o grid na tela */
 }
 
 .materia-circle {
@@ -132,7 +130,6 @@
     border-radius: 100%;
     display: flex;
     align-items: center;
-    /* background-color: red; */
 }
 .materia-circle .circle img{
     width: 100%;

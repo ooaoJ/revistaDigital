@@ -1,5 +1,5 @@
 @include('template.head')
-<body class="h-100">
+<body>
     <div class="w-100 h-100 body-container">
         @include('template.nav')
         
