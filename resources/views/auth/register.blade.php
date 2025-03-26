@@ -1,5 +1,32 @@
 @include('template.head')
 <body class="d-flex align-items-center justify-content-center flex-column h-100 auth-body">
+    <script>
+        function CriarEstrela(x, y) {
+            const estrela = document.createElement('div');
+            estrela.classList.add('estrela');
+            document.body.appendChild(estrela);
+    
+            estrela.style.position = 'absolute';
+            estrela.style.left = `${x}px`;
+            estrela.style.top = `${y}px`;
+
+            setTimeout(() => {
+                estrela.remove();
+            }, 1500);
+        }
+    
+        function GerarEstrela() {
+            setInterval(() => {
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                CriarEstrela(x, y);
+            }, 300);
+        }
+    
+        // Aguarda o carregamento completo do DOM antes de iniciar
+        window.addEventListener('load', GerarEstrela);
+    </script>
+    
     <a href="{{route('index')}}" class="fs-2 text-light" style="position: absolute; top: 0px; left: 10px;"><i class="bi bi-reply"></i></a>
     <div class="position-fixed top-0 end-0 p-3" style="z-index: 1050;">
         @error('nome')
