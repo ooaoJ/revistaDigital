@@ -28,7 +28,8 @@ Route::get('/usuarios', function () {
     return view('admin.users', compact('usuarios'));
 })->name('painel-usuario')->middleware('auth');
 
-Route::get('/noticias', [NoticiaController::class, 'create'])
+
+Route::get('/post-noticia', [NoticiaController::class, 'create'])
     ->name('painel-noticia')
     ->middleware('auth');
 
@@ -39,13 +40,14 @@ Route::post('/usuarios/{id}/alterar-permissao', [UserController::class, 'alterar
     ->name('alterar-nivel')
     ->middleware('auth');
 
-Route::post('/noticias', [NoticiaController::class, 'store'])->name('noticias-store');
+Route::post('/post-noticia', [NoticiaController::class, 'store'])->name('noticias-store');
 
-Route::get('/painel-noticias', [NoticiaController::class, 'painelModeracao'])
+// Rotas para o painel de moderação e ações sobre notícias
+Route::get('/painel-noticia', [NoticiaController::class, 'painelModeracao'])
     ->name('painel-noticias')
     ->middleware('auth');
 
-Route::post('/noticias/{id}/aprovar', [NoticiaController::class, 'aprovar'])
+Route::post('/painel-noticia/{id}/aprovar', [NoticiaController::class, 'aprovar'])
     ->name('noticias-aprovar');
 
 Route::post('/noticias/{id}/reprovar', [NoticiaController::class, 'reprovar'])
