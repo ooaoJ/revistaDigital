@@ -1,5 +1,5 @@
 @include('template.head')
-<body class="d-flex align-items-center justify-content-center h-100 auth-body">
+<body class="d-flex align-items-center justify-content-center h-100 auth-body overflow-hidden">
     <script>
         function CriarEstrela(x, y) {
             const estrela = document.createElement('div');
