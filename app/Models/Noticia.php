@@ -15,10 +15,9 @@ class Noticia extends Model
 
     public function materia()
     {
-        return $this->belongsTo(Materia::class, 'materia_id');
+        return $this->belongsTo(Materia::class, 'materia_id', 'id');
     }
 
-    
     public function user()
     {
         return $this->belongsTo(Usuario::class, 'user_id', 'id');

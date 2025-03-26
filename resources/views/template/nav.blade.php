@@ -1,8 +1,10 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary w-100">
     <div class="container-fluid d-flex align-items-center justify-content-between w-100">
       <div class="home-nav">
-        <img src="{{ asset('images/logo/logo-nexus.png') }}" alt="">
-        <a class="home-text" href="{{route('main-page')}}">Revista NextUs</a>
+        <a class="home-text" href="{{route('main-page')}}">
+          <img src="{{ asset('images/logo/logo-nexus.png')}}" alt="">
+          <p>Revista Next</p>
+        </a>
       </div>
       <div class=" d-flex align-items-center justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav mb-2 mb-lg-0">
@@ -13,7 +15,7 @@
             <ul class="dropdown-menu dropdown-menu-end" id="dropdown">
                 <li><a href="" class="dropdown-item"><i class="bi bi-person"></i> Meu perfil</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a href="" class="dropdown-item"><i class="bi bi-book"></i> Matérias</a></li>
+                <li><a href="#materia-group" class="dropdown-item"><i class="bi bi-book"></i> Matérias</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a href="" class="dropdown-item"><i class="bi bi-people"></i> Aconteceu na escola</a></li>
                 <li><hr class="dropdown-divider"></li>
