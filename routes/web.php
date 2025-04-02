@@ -74,4 +74,4 @@ Route::post('/noticias/{id}/reprovar', [NoticiaController::class, 'reprovar'])
 Route::get('/materia/{id}', [MateriaController::class, 'show'])->name('materia-show');
 
 
-Route::get('/noticias/{id}', [NoticiaController::class, 'show'])->name('noticia.show');
+Route::get('/noticia/{id}', [NoticiaController::class, 'show'])->name('noticia.show');

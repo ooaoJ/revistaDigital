@@ -257,31 +257,115 @@ footer .copy{
 .materia-design img{
     width: 160px;
 }
-.materia1{
+
+/* materia 1 */
+.materia1, .materia2{
     background-color: #9CBCE3;
 }
-.materia2{
-    background-color: #9CBCE3;
+.card-1, .card-2{
+    border: 1px solid #9CBCE3;
+    background-color: #F2F2F2;
 }
-.materia3{
+.btn-1, .btn-2{
+    background-color: #80A7D8;
+}
+
+
+.materia3, .materia4{
     background-color: #ED7698;
 }
-.materia4{
+.card-3, .card-4{
+    border: 1px solid #ED7698;
+    background-color: #F2F2F2;
+}
+.btn-3, .btn-4{
     background-color: #ED7698;
 }
-.materia5{
+
+.materia5, .materia6{
     background-color: #F2DC87;
 }
-.materia6{
+.card-5, .card-6{
+    border: 1px solid #F2DC87;
+    background-color: #F2F2F2;
+}
+.btn-5, .btn-6{
     background-color: #F2DC87;
 }
-.materia7{
+
+
+.materia7, .materia8{
     background-color: #F9B56A;
 }
-.materia8{
+.card-7, .card-8{
+    border: 1px solid #F9B56A;
+    background-color: #F2F2F2;
+}
+.btn-7, .btn-8{
     background-color: #F9B56A;
 }
+
+
 .materia9, .materia10, .materia11, .materia12{
     background-color: #88C0A4;
 }
+.card-9, .card-10, .card-11, .card-12{
+    border: 1px solid #88C0A4;
+    background-color: #F2F2F2;
+}
+.btn-9, .btn-10, .btn-11, .btn-12:hover{
+    background-color: #88C0A4;
+}
 
+.card-noticia{
+    width: 500px;
+}
+.card-noticia div a{
+    color: #fff;
+}
+.card-noticia img{
+    margin-top: 20px;
+    border-radius: 8px;
+    width: 90%;
+}
+
+.btn-card-noticia{
+    width: 120px;
+}
+
+.card-noticia div a.btn-1:hover,
+.card-noticia div a.btn-2:hover{                    
+    background-color: #80A7D8;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.card-noticia div a.btn-3:hover,
+.card-noticia div a.btn-4:hover{                    
+    background-color: #ED7698;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.card-noticia div a.btn-5:hover,
+.card-noticia div a.btn-6:hover{                    
+    background-color: #F2DC87;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.card-noticia div a.btn-7:hover,
+.card-noticia div a.btn-8:hover{                    
+    background-color: #F9B56A;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.card-noticia div a.btn-9:hover,
+.card-noticia div a.btn-10:hover,
+.card-noticia div a.btn-11:hover,
+.card-noticia div a.btn-12:hover{                    
+    background-color: #88C0A4;
+    color: #fff;
+    transform: scale(1.1);
+}
