@@ -117,10 +117,11 @@
 .materia-group {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 40px; /* Reduzi o espaçamento */
-    justify-items: center; /* Alinha os itens ao centro da célula */
-    width: 80%; /* Reduzi a largura para evitar desalinhamento */
-    margin: 0 auto; /* Centraliza o grid na tela */
+    gap: 40px;
+    justify-items: center;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 50px;
 }
 
 .materia-circle {
@@ -283,3 +284,4 @@ footer .copy{
 .materia9, .materia10, .materia11, .materia12{
     background-color: #88C0A4;
 }
+

@@ -68,4 +68,10 @@ class NoticiaController extends Controller
         $noticias = Noticia::where('status', 0)->get();
         return view('admin.aprove', compact('noticias')); 
     }
+
+    public function show($id)
+    {
+        $noticia = Noticia::with('materia', 'user')->findOrFail($id);
+        return view('notice-page', compact('noticia'));
+    }
 }

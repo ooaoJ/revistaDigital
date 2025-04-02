@@ -72,3 +72,6 @@ Route::post('/noticias/{id}/reprovar', [NoticiaController::class, 'reprovar'])
 
 // Rota para chamar a função de mostrar matéria por ID
 Route::get('/materia/{id}', [MateriaController::class, 'show'])->name('materia-show');
+
+
+Route::get('/noticias/{id}', [NoticiaController::class, 'show'])->name('noticia.show');
