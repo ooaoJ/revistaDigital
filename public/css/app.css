@@ -440,6 +440,7 @@ footer .copy{
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 .profile-user-image img{
     width: 100%;
@@ -493,4 +494,22 @@ footer .copy{
 .theme-active{
     background-color: #80A7D8 !important;
     color: #fff !important;
+}
+#edit-pencil{
+    position: absolute;
+    font-size: 32px;
+    width: 45px;
+    height: 45px;
+    background-color: #dfdfdf;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 40px;
+    right: 40px;
+    cursor: pointer;
+    transition: 0.6s;
+}
+#edit-pencil:hover{
+    transform: scale(1.05);
 }

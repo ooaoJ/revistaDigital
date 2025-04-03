@@ -13,6 +13,7 @@
                         <section>
                             <div class="profile-user-image">
                                 <img src="{{asset('images/users/usuario0.png')}}" alt="usuario 0">
+                                <i class="bi bi-pencil" id="edit-pencil"></i>
                             </div>
                             <p class="user-email">{{Auth::user()->email}}</p>
                         </section>
