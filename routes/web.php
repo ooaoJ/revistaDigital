@@ -75,3 +75,8 @@ Route::get('/materia/{id}', [MateriaController::class, 'show'])->name('materia-s
 
 
 Route::get('/noticia/{id}', [NoticiaController::class, 'show'])->name('noticia.show');
+
+
+Route::get('/perfil-usuario', function(){
+    return view('acount');
+})->name('perfil-usuario');

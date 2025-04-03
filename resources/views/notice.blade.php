@@ -12,8 +12,10 @@
                     <h1>Nenhuma notícia dessa matéria foi registrada ainda.</h1>
                 @else
                     @foreach ($materia->noticias as $noticia)
-                        <div class="card-{{$materia->id}} card-noticia card mb-3 d-flex flex-column align-items-center justify-content-center       ">
-                            <img src="{{ asset('storage/' . $noticia->imagem) }}" class="card-img-top" alt="Imagem da Notícia">
+                        <div class="card-{{$materia->id}} card-noticia card mb-3 d-flex flex-column align-items-center justify-content-center">
+                            <div class="card-img-container">
+                                <img src="{{ asset('storage/' . $noticia->imagem) }}" class="card-img-top" alt="Imagem da Notícia">
+                            </div>
                             <div class="card-body d-flex flex-column align-items-center">
                                 <h2 class="card-title text-center">{{ $noticia->titulo }}</h2>
                                 <p class="card-text text-center">{{ $noticia->subtitulo }}</p>
