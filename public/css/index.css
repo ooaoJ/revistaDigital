@@ -1,3 +1,4 @@
+/* css exclusivo para a pagina index.blade */
 body{
     overflow-x: hidden;
 }
@@ -191,15 +192,6 @@ body{
 #button-access{
     right: 180px;
 }
-
-
-
-
-
-
-
-
-
 
 
 @keyframes pulso{

@@ -17,6 +17,11 @@
         width: 85%;
     }
 }
+html{
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+}
 .auth-body{
     background: linear-gradient(to right, #5170ff, #ff66c4);
 }
@@ -379,4 +384,113 @@ footer .copy{
     height: 100%;
     object-fit: cover;
     border-radius: 5px;
+}
+
+/* pagina de perfil usuario */
+
+.acount-main{
+    width: 100%;
+    height: 645px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-voltar{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: #212121;
+    transition: 0.5s;
+}
+.btn-voltar i{
+    color: #fff;
+    font-size: 22px;
+}
+.btn-voltar:hover{
+    transform: scale(1.05);
+}
+.profile-container{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+}
+.profile-container .profile-container-title{
+    width: 160px;
+    height: 40px;
+    background-color: #A8CBF7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 30px;
+    font-size: 20px;
+}
+.profile-user-image{
+    width: 350px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile-user-image img{
+    width: 100%;
+    height: 100%;
+}
+.profile-infos{
+    display: flex;
+    gap: 6rem;
+}
+.profile-infos section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.profile-infos section:nth-child(1){
+    align-items: center;
+}
+.profile-infos section:nth-child(2){
+    width: 320px;
+    gap: 3rem;
+}
+.user-email{
+    font-size: 22px;
+}
+.theme-container p{
+    font-size: 24px;
+}
+.theme-select{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 50px;
+    border-radius: 30px;
+    border: 3px solid #80A7D8;
+}
+.theme-select .theme-option{
+    color: #80A7D8;
+    width: 80px;
+    padding: 8px;
+    border-radius: 30px;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.theme-select .theme-option:hover{
+    background-color: #80a8d867;
+}
+.theme-active{
+    background-color: #80A7D8 !important;
+    color: #fff !important;
 }
