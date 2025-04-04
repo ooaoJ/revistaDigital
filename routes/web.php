@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\NoticiaController;
 use App\Http\Controllers\MateriaController;
 use App\Models\Usuario;
+use App\Models\Materia;
 
 // Rota para chamar o index
 Route::get('/', function () {
@@ -40,6 +41,10 @@ Route::get('/main-page', function () {
 // Rota para chamar todos os usuarios na tela de painel de usuarios
 Route::get('/usuarios', function () {
     $usuarios = Usuario::all();
+    if(Auth::user()->nivel != 4){
+        return redirect()->route('main-page');
+    }
+    
     return view('admin.users', compact('usuarios'));
 })->name('painel-usuario')->middleware('auth');
 
@@ -88,5 +93,6 @@ Route::get('/noticia/{id}', [NoticiaController::class, 'show'])->name('noticia.s
 
 
 Route::get('/perfil-usuario', function(){
-    return view('acount');
+    $materias = Materia::all();
+    return view('acount', compact('materias'));
 })->name('perfil-usuario');

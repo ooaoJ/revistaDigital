@@ -62,6 +62,9 @@ html{
     font-weight: 500;
 }
 .botao-logout{
+    display: flex;
+    align-items: start;
+    width: 100%;
     border: none;
     background: transparent;
     text-decoration: none;
@@ -127,7 +130,7 @@ html{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 160px;
+    gap: 80px;
     justify-items: center;
     width: 80%;
     margin: 0 auto;
@@ -564,4 +567,140 @@ footer .copy{
 }
 #edit-pencil:hover{
     transform: scale(1.05);
+}
+.profile-container-title-orange{
+    background-color: #F9B56A !important;
+}
+.h1-criacao{
+    text-align: center;
+    border-bottom: 1px solid black;
+    height: 80px;
+}
+
+.theme-select-orange{
+    border: 3px solid #F9B56A !important;
+}
+
+.theme-option-orange{
+    color: #F9B56A !important;
+}
+.nivel-1 .theme-active{
+    background-color: #F9B56A !important;
+    color: #fff !important;
+}
+.nivel-1 .theme-option:hover{
+    background-color: #d8b08067 !important;
+}
+#add-post{
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #F9B56A;
+    transition: 0.5s;
+}
+#add-post p{
+    margin: 0;
+    font-size: 26px;
+    font-weight: 300;
+    color: #fff;
+}
+#add-post i{
+    font-size: 26px;
+    color: #fff;
+}
+#add-post:hover{
+    transform: scale(1.05);
+}
+.nivel-1 .profile-user-image{
+    width: 300px;
+    height: 300px;
+}
+.nivel-1 section:nth-child(1) h1{
+    font-weight: 400;
+}
+.acount-main{
+    width: 100%;
+}
+#modal-post {
+    z-index: -2;
+    opacity: 0;
+    padding: 30px;
+    width: 1450px;
+    height: 650px;
+    background-color: #FFFFFF;
+    position: fixed;
+    top: 40px;
+    border-radius: 12px;
+    left: calc(50% - 725px);
+    box-shadow: 0 0 1000px black;
+    transition: opacity 0.3s ease, z-index 0.3s ease, transform 0.3s ease;
+    transform: scale(0.8);
+}
+
+#close-modal{
+    border: none;
+    width: 100px;
+    height: 40px;
+    background-color: transparent;
+    color: #F9B56A;
+    font-size: 20px;
+}
+
+#modal-post form{
+    margin-top: 30px;
+}
+#modal-post form button{
+    border-radius: 50px;
+    background-color: #F9B56A;
+    width: 140px;
+    height: 40px;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    border: none;
+    color: #fff;
+}
+.form-sets{
+    width: 100%;
+    padding-top: 10px;
+    position: relative;
+}
+.title-input{
+    border: none;
+    border-bottom: 1px solid #F9B56A;
+    font-size: 28px;
+    font-weight: bold;
+}
+.subtitle-input{
+    border: none;
+    border-bottom: 1px solid #F9B56A;
+    font-size: 22px;
+    font-weight: 600;
+}
+.content-input{
+    height: 300px !important;
+    border: none;
+    border-bottom: 1px solid #F9B56A;
+    font-size: 18px;
+}
+.image-input{
+    border: 2px solid #F9B56A;
+}
+.materia-input{
+    border: 2px solid #F9B56A;
+}
+.active-modal {
+    opacity: 1 !important;
+    z-index: 2 !important;
+    transform: scale(1) !important;
+}
+
+@media (max-width: 1100px){
+    #modal-post{
+        width: 1000px;
+    }
 }
