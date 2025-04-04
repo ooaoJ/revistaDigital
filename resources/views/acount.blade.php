@@ -1,5 +1,5 @@
 @include('template.head')
-<body>
+<body >
     <div class="w-100 h-100 body-container d-flex flex-column justify-content-center">
         @include('template.nav')
         @if(Auth::user()->nivel === 0)
@@ -22,9 +22,9 @@
                             <div class="theme-container">
                                 <p>Tema:</p>
                                 <div class="theme-select">
-                                    <div class="theme-option theme-active">Claro</div>
-                                    <div class="theme-option">Escuro</div>
-                                    <div class="theme-option">Dispositivo</div>
+                                    <div id="theme1" onclick="changeTheme(this.id)" class="theme-option">Claro</div>
+                                    <div id="theme2" onclick="changeTheme(this.id)" class="theme-option">Escuro</div>
+                                    <div id="theme3" onclick="changeTheme(this.id)" class="theme-option">Dispositivo</div>
                                 </div>
                             </div>
                         </section>
@@ -66,5 +66,51 @@
         @include('template.footer')
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let themes = document.getElementsByClassName('theme-option');
+
+        function changeTheme(id) {
+            document.body.classList.remove('theme-light', 'theme-dark', 'theme-device');
+
+            Array.from(themes).forEach(theme => {
+                if (theme.id === id) {
+                    theme.classList.add('theme-active');
+                    localStorage.setItem('theme', id);
+                    
+                    if (id === 'theme1') {
+                        document.body.classList.add('theme-light');
+                    } else if (id === 'theme2') {
+                        document.body.classList.add('theme-dark');
+                    } else if (id === 'theme3') {
+                        document.body.classList.add('theme-device');
+                    }
+                } else {
+                    theme.classList.remove('theme-active');
+                }
+            });
+        }
+
+        window.onload = function() {
+            let savedTheme = localStorage.getItem('theme');
+
+            if (savedTheme) {
+                Array.from(themes).forEach(theme => {
+                    if (theme.id === savedTheme) {
+                        theme.classList.add('theme-active');
+                    } else {
+                        theme.classList.remove('theme-active');
+                    }
+                });
+
+                if (savedTheme === 'theme1') {
+                    document.body.classList.add('theme-light');
+                } else if (savedTheme === 'theme2') {
+                    document.body.classList.add('theme-dark');
+                } else if (savedTheme === 'theme3') {
+                    document.body.classList.add('theme-device');
+                }
+            }
+        }
+    </script>
 </body>
 </html>

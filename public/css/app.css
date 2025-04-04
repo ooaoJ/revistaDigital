@@ -1,3 +1,6 @@
+body,html{
+    width: 100%;
+}
 .auth-card{
     position: relative;
     width: 40%;
@@ -115,14 +118,16 @@ html{
     flex-direction: column;
     align-items: center;
     height: auto;
+    gap: 2rem;
 }
 .materias p{
     font-size: 20px;
 }
 .materia-group {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 160px;
     justify-items: center;
     width: 80%;
     margin: 0 auto;
@@ -136,6 +141,7 @@ html{
     align-items: center;
     flex-direction: column;
     gap: 20px;
+    transition: 0.5s ease;
 }
 .materia-circle .circle{
     width: 150px;
@@ -143,6 +149,52 @@ html{
     border-radius: 100%;
     display: flex;
     align-items: center;
+}
+.materia-circle:hover {
+    transform: scale(1.1);
+    /* font-size: 28px; */
+}
+.materia-circle p::before {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    left: calc(50% - 75px);
+    width: 0;
+    height: 2px;
+    transition: width 0.5s ease;
+}
+
+.materia-circle:nth-child(1) p::before,
+.materia-circle:nth-child(2) p::before{
+    background-color: #9CBCE3;
+}
+
+.materia-circle:nth-child(3) p::before,
+.materia-circle:nth-child(4) p::before{
+    background-color: #ED7698;
+}
+
+.materia-circle:nth-child(5) p::before,
+.materia-circle:nth-child(6) p::before{
+    background-color: #F2DC87;
+}
+
+.materia-circle:nth-child(7) p::before,
+.materia-circle:nth-child(8) p::before{
+    background-color: #F9B56A;
+}
+
+.materia-circle:nth-child(9) p::before,
+.materia-circle:nth-child(10) p::before,
+.materia-circle:nth-child(11) p::before,
+.materia-circle:nth-child(12) p::before{
+    background-color: #88C0A4;
+}
+
+
+
+.materia-circle:hover p::before {
+    width: 150px;
 }
 .materia-circle .circle img{
     width: 100%;

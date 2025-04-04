@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\NoticiaController;
@@ -9,16 +10,25 @@ use App\Models\Usuario;
 
 // Rota para chamar o index
 Route::get('/', function () {
+    if (Auth::check()) {
+        return redirect()->route('main-page');
+    }
     return view('index');
 })->name('index');
 
 // Rota para chamar a tela de login
 Route::get('/login-page', function () {
+    if (Auth::check()){
+        return redirect()->route('main-page');
+    }
     return view('auth.login');
 })->name('tela-login');
 
 // Rota para chamar a tela de registro
 Route::get('/register-page', function () {
+    if (Auth::check()){
+        return redirect()->route('main-page');
+    }
     return view('auth.register');
 })->name('tela-registro');
 
