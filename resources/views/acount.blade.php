@@ -1,7 +1,7 @@
 @include('template.head')
 
-<body>
-    <div class="w-100 h-100 body-container d-flex flex-column justify-content-center">
+<body style="height: 100%;">
+    <div class="w-100 h-100 body-container d-flex flex-column">
         @include('template.nav')
         @if(Auth::user()->nivel === 0)
             <main class="acount-main nivel-0">
@@ -105,33 +105,43 @@
             </div>
         @endif
         @if(Auth::user()->nivel === 2)
-            <main class="acount-main">
+            <main class="acount-main w-100" id="nivel2-main">
                 <button class="btn-voltar">
                     <p>
                         <i class="bi bi-arrow-left"></i>
                     </p>
                 </button>
-                <div class="profile-container">
-                    <p class="profile-container-title">Meu Perfil</p>
-                    <div class="profile-infos">
-                        <section>
-                            <div class="profile-user-image">
-                                <img src="{{asset('images/users/usuario0.png')}}" alt="usuario 0">
-                                <i class="bi bi-pencil" id="edit-pencil"></i>
+                <div class="profile-container w-100 h-100">
+                    <div class="profile-pend">
+                        <div class="profile-pend-top">
+                            <h1>Pendentes:</h1>
+                            <div class="profile-pend-user">
+                                <p>{{Auth::user()->nome}}</p>
+                                <img src="{{asset('images/users/usuario2.png')}}" alt="Icone do Usuário">
                             </div>
-                            <p class="user-email">{{Auth::user()->email}}</p>
-                        </section>
-                        <section>
-                            <h1 class="user-name">{{Auth::user()->nome}}</h1>
-                            <div class="theme-container">
-                                <p>Tema:</p>
-                                <div class="theme-select">
-                                    <div id="theme1" onclick="changeTheme(this.id)" class="theme-option">Claro</div>
-                                    <div id="theme2" onclick="changeTheme(this.id)" class="theme-option">Escuro</div>
-                                    <div id="theme3" onclick="changeTheme(this.id)" class="theme-option">Dispositivo</div>
-                                </div>
-                            </div>
-                        </section>
+                        </div>
+                        <div class="profile-pend-content">
+                            @foreach($noticias as $noticia)
+                                {{-- @if($noticia->id === 0) --}}
+                                    <div class="profile-content-card">
+                                        <div class="profile-content-card-top">
+                                            <h1>Conteúdo: {{$noticia->titulo}}</h1>
+                                            <h2>Matéria: {{$noticia->materia->nome}}</h2>
+                                        </div>
+                                        <div class="profile-content-card-bottom">
+                                            <form action="{{ route('noticias-aprovar', $noticia->id) }}" method="POST" class="d-inline">
+                                                @csrf
+                                                <button class="btn btn-aprova">Aprovar</button>
+                                            </form>
+                                            <form action="{{ route('noticias-reprovar', $noticia->id) }}" method="POST" class="d-inline">
+                                                @csrf
+                                                <button class="btn btn-recuso">Reprovar</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                {{-- @endif --}}
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </main>
@@ -144,27 +154,7 @@
                     </p>
                 </button>
                 <div class="profile-container">
-                    <p class="profile-container-title">Meu Perfil</p>
-                    <div class="profile-infos">
-                        <section>
-                            <div class="profile-user-image">
-                                <img src="{{asset('images/users/usuario0.png')}}" alt="usuario 0">
-                                <i class="bi bi-pencil" id="edit-pencil"></i>
-                            </div>
-                            <p class="user-email">{{Auth::user()->email}}</p>
-                        </section>
-                        <section>
-                            <h1 class="user-name">{{Auth::user()->nome}}</h1>
-                            <div class="theme-container">
-                                <p>Tema:</p>
-                                <div class="theme-select">
-                                    <div id="theme1" onclick="changeTheme(this.id)" class="theme-option">Claro</div>
-                                    <div id="theme2" onclick="changeTheme(this.id)" class="theme-option">Escuro</div>
-                                    <div id="theme3" onclick="changeTheme(this.id)" class="theme-option">Dispositivo</div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
+                    
                 </div>
             </main>
         @endif

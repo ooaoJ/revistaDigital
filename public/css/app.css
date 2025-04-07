@@ -130,7 +130,7 @@ html{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 80px;
+    gap: 100px;
     justify-items: center;
     width: 80%;
     margin: 0 auto;
@@ -445,7 +445,6 @@ footer .copy{
 
 .acount-main{
     width: 100%;
-    height: 645px;
     position: relative;
     display: flex;
     align-items: center;
@@ -703,4 +702,86 @@ footer .copy{
     #modal-post{
         width: 1000px;
     }
+}
+
+.profile-pend{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.profile-pend-top{
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 100px;
+}
+.profile-pend-top .profile-pend-user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.profile-pend-user img{
+    width: 90px;
+}
+.profile-pend-user p{
+    font-size: 22px;
+    margin: 0;
+}
+.profile-pend-content{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+}
+.profile-content-card{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 340px;
+    height: 160px;
+}
+.profile-content-card-top{
+    width: 100%;
+}
+.profile-content-card-top h1{
+    font-size: 34px;
+    font-weight: 400;
+}
+.profile-content-card-top h2{
+    font-weight: 400;
+    font-size: 22px;
+}
+.profile-content-card-bottom{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.profile-content-card-bottom form button{
+    width: 140px;
+    transition: transform 0.5s ease;
+    font-size: 22px;
+}
+.profile-content-card-bottom form button:hover{
+    transform: scale(1.1);
+}
+.profile-content-card-bottom form button.btn-recuso{
+    background-color: #BF375E;
+    color: #fff;
+}
+.profile-content-card-bottom form button.btn-aprova{
+    background-color: #88C0A4;
+    color: #fff;
+}
+#nivel2-main{
+    height: auto;
+    min-height: 645px;
 }

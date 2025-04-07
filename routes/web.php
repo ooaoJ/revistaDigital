@@ -8,6 +8,7 @@ use App\Http\Controllers\NoticiaController;
 use App\Http\Controllers\MateriaController;
 use App\Models\Usuario;
 use App\Models\Materia;
+use App\Models\Noticia;
 
 // Rota para chamar o index
 Route::get('/', function () {
@@ -94,5 +95,6 @@ Route::get('/noticia/{id}', [NoticiaController::class, 'show'])->name('noticia.s
 
 Route::get('/perfil-usuario', function(){
     $materias = Materia::all();
-    return view('acount', compact('materias'));
+    $noticias = Noticia::all();
+    return view('acount', compact('materias', 'noticias'));
 })->name('perfil-usuario');
