@@ -1,7 +1,7 @@
 @include('template.head')
 
-<body style="height: 100%;">
-    <div class="w-100 h-100 body-container d-flex flex-column">
+<body>
+    <div class="w-100 min-vh-100 body-container d-flex flex-column">
         @include('template.nav')
         @if(Auth::user()->nivel === 0)
             <main class="acount-main nivel-0">
@@ -121,8 +121,14 @@
                             </div>
                         </div>
                         <div class="profile-pend-content">
-                            @foreach($noticias as $noticia)
-                                {{-- @if($noticia->id === 0) --}}
+                            @php
+                                $noticiasFiltro = $noticias->where('id', 0);
+                            @endphp
+
+                            @if($noticiasFiltro->isEmpty())
+                                <h1 class="m-5">Nenhuma notícia encontrada.</h1>
+                            @else
+                                @foreach($noticias as $noticia)
                                     <div class="profile-content-card">
                                         <div class="profile-content-card-top">
                                             <h1>Conteúdo: {{$noticia->titulo}}</h1>
@@ -139,22 +145,33 @@
                                             </form>
                                         </div>
                                     </div>
-                                {{-- @endif --}}
-                            @endforeach
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                 </div>
             </main>
         @endif
         @if(Auth::user()->nivel === 4)
-            <main class="acount-main">
+            <main class="acount-main w-100" id="nivel4-main">
                 <button class="btn-voltar">
                     <p>
                         <i class="bi bi-arrow-left"></i>
                     </p>
                 </button>
-                <div class="profile-container">
-                    
+                <div class="profile-container admin-container">
+                    <div class="admin-painel">
+                        <h1>Bem vindo <span class="text-primary">{{Auth::user()->nome}}</span></h1>
+                        <a href="{{route('painel-usuario')}}" class="btn btn-primary">
+                            <button>Painel de Usuários <i class="bi bi-person-gear"></i></button>
+                        </a>
+                        <a href="{{route('painel-noticias')}}" class="btn btn-primary">
+                            <button>Painel de Notícia <i class="bi bi-newspaper"></i></button>
+                        </a>
+                        <a href="{{route('painel-materias')}}" class="btn btn-primary">
+                            <button>Painel de Matérias <i class="bi bi-tags"></i></button>
+                        </a>
+                    </div>
                 </div>
             </main>
         @endif

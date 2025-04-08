@@ -98,3 +98,28 @@ Route::get('/perfil-usuario', function(){
     $noticias = Noticia::all();
     return view('acount', compact('materias', 'noticias'));
 })->name('perfil-usuario');
+
+Route::post('/usuarios', [AuthController::class, 'registrarAdmin'])->name('registrar-admin');
+
+
+Route::get('/materias', function(){
+    if(Auth::user()->nivel != 4){
+        return redirect()->route('main-page');
+    }
+    $materias = Materia::all();
+    return view('admin.materias', compact('materias')); 
+})->name('painel-materias');
+
+Route::post('/materias', [MateriaController::class, 'store'])->name('materias-store');
+
+
+Route::get('/noticias', function(){
+    if(Auth::user()->nivel != 4){
+        return redirect()->route('main-page');
+    }
+    $noticias = Noticia::all();
+    $materias = Materia::all();
+    return view('admin.noticias', compact('noticias' , 'materias')); 
+})->name('painel-noticias');
+
+Route::delete('/materias/{id}', [MateriaController::class, 'destroy'])->name('materias.destroy');

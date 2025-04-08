@@ -22,6 +22,11 @@
                 @if(Auth::user()->nivel === 4)
                     <li><a class="dropdown-item" href="{{route('painel-usuario')}}"><i class="bi bi-person-gear"></i> Gerenciar Usuários</a></li>
                     <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="{{route('painel-noticias')}}"><i class="bi bi-newspaper"></i> Gerenciar Notícias</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="{{route('painel-materias')}}"><i class="bi bi-tags"></i> Gerenciar Matérias</a></li>
+                    <li><hr class="dropdown-divider"></li>
+
                 @endif
               <li>
                 <form action="{{ route('logout') }}" method="POST" class="dropdown-item leave-button">

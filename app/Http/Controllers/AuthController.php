@@ -59,4 +59,21 @@ class AuthController extends Controller
         Auth::logout();
         return redirect()->route('tela-login')->with('success', 'Você saiu com sucesso.');
     }
+
+    public function registrarAdmin(Request $request)
+    {
+        $request->validate([
+            'nome' => 'required|string|max:100',
+            'email' => 'required|email|unique:usuarios,email',
+            'password' => 'required|min:6',
+        ]);
+
+        Usuario::create([
+            'nome' => $request->nome,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()->route('painel-usuario')->with('success', 'Usuário cadastrado com sucesso!');
+    }
 }
