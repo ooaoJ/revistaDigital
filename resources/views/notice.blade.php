@@ -14,12 +14,12 @@
                     @foreach ($materia->noticias as $noticia)
                         <div class="card-{{$materia->id}} card-noticia card mb-3 d-flex flex-column align-items-center justify-content-center">
                             <div class="card-img-container">
-                                <img src="{{ asset('storage/' . $noticia->imagem) }}" class="card-img-top" alt="Imagem da Notícia">
+                                <img src="{{ asset('storage/' . $noticia->imagem) }}" alt="Imagem da Notícia">
                             </div>
                             <div class="card-body d-flex flex-column align-items-center">
                                 <h2 class="card-title text-center">{{ $noticia->titulo }}</h2>
-                                <p class="card-text text-center">{{ $noticia->subtitulo }}</p>
-                                <a href="{{ route('noticia.show', $noticia->id) }}" class="btn btn-{{$materia->id}} btn-card-noticia">Ver mais</a>
+                                <p class="mb-3 card-text text-center">{{ $noticia->subtitulo }}</p>
+                                <a href="{{ route('noticia-show', $noticia->id) }}" class="btn btn-{{$materia->id}} btn-card-noticia">Ver mais</a>
                             </div>
                         </div>
                     @endforeach

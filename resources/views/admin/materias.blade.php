@@ -1,6 +1,5 @@
 @include('template.head')
 <style>
-/* Estilos para o modal e a tabela já existentes */
 #modal {
     display: none;
     position: fixed;
@@ -62,7 +61,6 @@
                         <td>{{ $materia->id }}</td>
                         <td>{{ $materia->nome }}</td>
                         <td>
-                            <!-- Botão para deletar a matéria -->
                             <form action="{{ route('materias.destroy', $materia->id) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
@@ -76,10 +74,7 @@
                 @endforeach
             </tbody>
         </table>
-
         <button class="btn btn-dark mt-3" id="open-modal">Criar nova matéria</button>
-
-        <!-- Modal para criação de nova matéria -->
         <div id="modal">
             <form action="{{ route('materias-store') }}" method="POST">
                 @csrf
@@ -93,7 +88,7 @@
         </div>
     </main>
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const openModalBtn = document.getElementById('open-modal');

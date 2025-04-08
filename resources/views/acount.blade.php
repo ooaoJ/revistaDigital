@@ -36,7 +36,7 @@
             </main>
         @endif
         @if(Auth::user()->nivel === 1)
-            <main class="acount-main nivel-1">
+            <main class="acount-main nivel-1" id="nivel1-main">
                 <button class="btn-voltar">
                     <p>
                         <i class="bi bi-arrow-left"></i>
@@ -122,13 +122,13 @@
                         </div>
                         <div class="profile-pend-content">
                             @php
-                                $noticiasFiltro = $noticias->where('id', 0);
+                                $noticiasFiltro = $noticias->where('status', 0);
                             @endphp
 
                             @if($noticiasFiltro->isEmpty())
                                 <h1 class="m-5">Nenhuma notícia encontrada.</h1>
                             @else
-                                @foreach($noticias as $noticia)
+                                @foreach($noticiasFiltro as $noticia)
                                     <div class="profile-content-card">
                                         <div class="profile-content-card-top">
                                             <h1>Conteúdo: {{$noticia->titulo}}</h1>

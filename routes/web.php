@@ -90,7 +90,7 @@ Route::post('/noticias/{id}/reprovar', [NoticiaController::class, 'reprovar'])
 Route::get('/materia/{id}', [MateriaController::class, 'show'])->name('materia-show');
 
 
-Route::get('/noticia/{id}', [NoticiaController::class, 'show'])->name('noticia.show');
+Route::get('/noticia/{id}', [NoticiaController::class, 'show'])->name('noticia-show');
 
 
 Route::get('/perfil-usuario', function(){
@@ -122,4 +122,4 @@ Route::get('/noticias', function(){
     return view('admin.noticias', compact('noticias' , 'materias')); 
 })->name('painel-noticias');
 
-Route::delete('/materias/{id}', [MateriaController::class, 'destroy'])->name('materias.destroy');
+Route::delete('/materias/{id}', [MateriaController::class, 'destroy'])->name('materias.destroy')->middleware('auth');;

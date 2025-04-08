@@ -98,10 +98,7 @@ table tr{
                 @endforeach
             </tbody>
         </table>
-
         <button class="btn btn-dark mt-3 mb-5" id="open-modal">Criar nova notícia</button>
-
-        <!-- Modal de criação -->
         <div id="modal">
             <form action="{{ route('noticias-store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -154,5 +151,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

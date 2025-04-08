@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class NoticiaController extends Controller
 {
-    // Método para exibir o formulário de criação de notícias
     public function create()
     {
         $materias = Materia::all();

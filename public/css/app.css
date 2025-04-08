@@ -1,6 +1,9 @@
 body,html{
     width: 100%;
 }
+p{
+    margin: 0;
+}
 .auth-card{
     position: relative;
     width: 40%;
@@ -744,6 +747,7 @@ footer .copy{
     height: auto;
 }
 .profile-content-card{
+    min-height: 240px;
     margin-top: 20px;
     margin-bottom: 20px;
     display: flex;
@@ -751,7 +755,7 @@ footer .copy{
     align-items: center;
     justify-content: space-between;
     width: 440px;
-    height: 220px;
+    height: 240px;
     border-radius: 10px;
     padding: 10px;
     border-bottom: 1px solid #212121;
@@ -856,4 +860,85 @@ footer .copy{
 
 .custom-modal .close:hover {
     color: #333;
+}
+
+/* notice page */
+
+.noticia-container-info{
+    width: 100%;
+    height: 80px;
+}
+.noticia-container-info .notice-title{
+    width: auto;
+    min-width: 500px;
+}
+.noticia-container-info .notice-title h1{
+    width: auto;
+    font-size: 48px;
+    font-weight: 400;
+}
+.noticia-container-info .notice-title h2{
+    width: auto;
+    font-weight: 400;
+    font-size: 34px;
+    color: #6F6E6E;
+}
+.noticia-container-info .notice-user{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.noticia-container-info .notice-user img{
+    width: 80px;
+}
+.noticia-container-info .notice-user p:nth-child(1){
+    font-size: 18px;
+    font-weight: 600;
+}
+.noticia-container-info .notice-user p:nth-child(2){
+    font-size: 12px;
+    color: #6F6E6E;
+}
+.notice-upper{
+    justify-content: space-between;
+}
+.notice-title{
+    width: 400px;
+}
+.navbar{
+    padding: 0;
+}
+.notice-guide-link{
+    color: black;
+    text-decoration: none;
+}
+.image-notice{
+    float: left; /* Ou right, se preferir */
+    margin: 0 3em 1em 0; /* Espaçamento ao redor da imagem */
+    max-width: 40%; /* Ajuste conforme desejar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #6F6E6E;
+}
+.image-notice .image-description{
+    text-align: center;
+}
+.text-notice {
+    font-size: 18px !important;
+
+    /* Força a quebra de linha mesmo sem espaço */
+    white-space: pre-wrap;     
+    word-wrap: break-word;    
+    overflow-wrap: break-word; 
+}
+.image-notice img{
+    width: 100%;
+}
+#nivel1-main{
+    height: auto;
+    min-height: 661px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
