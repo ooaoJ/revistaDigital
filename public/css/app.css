@@ -935,7 +935,7 @@ footer .copy{
 .image-notice img{
     width: 100%;
 }
-#nivel1-main{
+#nivel1-main , #nivel0-main{
     height: auto;
     min-height: 661px;
     display: flex;

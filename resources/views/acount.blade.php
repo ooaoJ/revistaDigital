@@ -4,7 +4,7 @@
     <div class="w-100 min-vh-100 body-container d-flex flex-column">
         @include('template.nav')
         @if(Auth::user()->nivel === 0)
-            <main class="acount-main nivel-0">
+            <main class="acount-main nivel-0" id="nivel0-main">
                 <button class="btn-voltar">
                     <p>
                         <i class="bi bi-arrow-left"></i>
