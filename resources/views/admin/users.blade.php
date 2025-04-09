@@ -46,7 +46,7 @@
     <div>
         @include('template.nav')
         
-        <main class="mt-3 container">
+        <main class="mt-3 mb-5 container">
             <h1>Exibindo o Painel de Usuarios</h1>
             <p>Todos os usuarios irão aparecer abaixo no quadro.</p>
 
@@ -99,6 +99,7 @@
                 </form>
             </div>
         </main>
+        @include('template.footer')
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>

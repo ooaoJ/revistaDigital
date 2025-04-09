@@ -1,7 +1,4 @@
 @include('template.head')
-@php
-    $userID = Auth::user()->id;
-@endphp
 <body>
     <div class="w-100 h-100 d-flex flex-column justify-content-center">
         @include('template.nav')
@@ -15,7 +12,7 @@
                     <h2>{{$noticia->subtitulo}}</h2>
                 </div>
                 <div class="notice-user">
-                    <img src="{{asset('images/users/usuario' . $userID . '.png')}}" alt="Imagem do Usuário">
+                    <img src="{{asset('images/users/usuario' . $noticia->user->nivel . '.png')}}" alt="Imagem do Usuário">
                     <div class="notice-user-text">
                         <p>Por: {{$noticia->user->nome}}</p>
                         <p>{{$noticia->created_at->format('d/m/Y')}}</p>
@@ -28,7 +25,14 @@
                     <img class="rounded" src="{{ asset('storage/' . $noticia->imagem) }}" alt="Imagem da Notícia">
                     <p class="image-description">"{{$noticia->subtitulo}}"</p>
                 </div>
-                <p class="text-notice">{!! nl2br(e($noticia->conteudo)) !!}</p>
+                @php
+                    $conteudoFormatado = preg_replace_callback('/["“”](.*?)["“”]/u', function ($matches) {
+                            return '<em>"' . e($matches[1]) . '"</em>';
+                    }, 
+                    $noticia->conteudo
+                    );
+                @endphp
+                <p class="text-notice">{!! nl2br($conteudoFormatado) !!}</p>
             </div>
         </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

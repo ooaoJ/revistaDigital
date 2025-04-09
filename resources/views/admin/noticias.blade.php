@@ -51,7 +51,7 @@ table tr{
 <div>
     @include('template.nav')
 
-    <main class="mt-3 container">
+    <main class="mt-3 mb-5 container">
         <h1>Painel de Notícias</h1>
         <p>Abaixo estão listadas todas as notícias e um botão para criar nova.</p>
 
@@ -128,6 +128,7 @@ table tr{
             </form>
         </div>
     </main>
+    @include('template.footer')
 </div>
 
 <script>

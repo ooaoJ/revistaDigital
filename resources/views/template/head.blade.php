@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
+    <link rel="icon" type="image/png" href="{{asset('images/logo/logo-nexus.png')}}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script>
         document.addEventListener('DOMContentLoaded', () => {

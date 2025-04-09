@@ -43,7 +43,7 @@
 <div>
     @include('template.nav')
 
-    <main class="mt-3 container">
+    <main class="mt-3 mb-5 container">
         <h1>Painel de Matérias</h1>
         <p>Abaixo estão listadas todas as matérias e um botão para criar uma nova.</p>
 
@@ -87,6 +87,7 @@
             </form>
         </div>
     </main>
+    @include('template.footer')
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
