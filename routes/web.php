@@ -36,7 +36,8 @@ Route::get('/register-page', function () {
 
 // Rota para chamar a pagina principal da aplicação
 Route::get('/main-page', function () {
-    return view('main');
+    $noticias = Noticia::orderBy('created_at', 'desc')->limit(3)->get();
+    return view('main', compact('noticias'));
 })->name('main-page')->middleware('auth');
 
 // Rota para chamar todos os usuarios na tela de painel de usuarios

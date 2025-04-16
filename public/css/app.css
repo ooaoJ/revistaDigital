@@ -887,9 +887,9 @@ footer .copy{
     text-decoration: none;
 }
 .image-notice{
-    float: left; /* Ou right, se preferir */
-    margin: 0 3em 1em 0; /* Espaçamento ao redor da imagem */
-    max-width: 40%; /* Ajuste conforme desejar */
+    float: left;
+    margin: 0 3em 1em 0;
+    max-width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -900,8 +900,6 @@ footer .copy{
 }
 .text-notice {
     font-size: 18px !important;
-
-    /* Força a quebra de linha mesmo sem espaço */
     white-space: pre-wrap;     
     word-wrap: break-word;    
     overflow-wrap: break-word; 
@@ -919,7 +917,7 @@ footer .copy{
 
 /* tela do carrossel */
 
-.carousel-container{
+.carousel-container {
     overflow: hidden;
     position: relative;
     width: 100%;
@@ -927,13 +925,17 @@ footer .copy{
     margin-top: 30px;
     margin-bottom: 50px;
 }
-.carousel-controler{
+
+.carousel-controler {
     position: absolute;
     left: calc(50% - 500px);
     width: 1000px;
     height: 100%;
+    z-index: 30;
+    pointer-events: none;
 }
-.button-controler{
+
+.button-controler {
     width: 50px;
     height: 50px;
     display: flex;
@@ -945,20 +947,25 @@ footer .copy{
     font-size: 28px;
     position: absolute;
     transition: background-color 0.5s ease;
+    pointer-events: auto;
 }
-.button-controler:hover{
+
+.button-controler:hover {
     background-color: #21212162;
     cursor: pointer;
 }
-#right{
+
+#right {
     top: calc(50% - 25px);
     right: 10px;
 }
-#left{
+
+#left {
     top: calc(50% - 25px);
     left: 10px;
 }
-#bullet-control{
+
+#bullet-control {
     width: 200px;
     height: 30px;
     position: absolute;
@@ -968,25 +975,34 @@ footer .copy{
     justify-content: center;
     gap: 30px;
     align-items: center;
+    z-index: 30;
+    pointer-events: auto;
 }
-.bullet-control-bullet{
+
+.bullet-control-bullet {
     width: 20px;
     height: 20px;
     border-radius: 10px;
-    border: 2px solid #2121213d;
-    transition: width 0.5s ease;
+    background-color: #ffffff84;
+    border: 2px solid #21212179;
+    transition: width 0.5s ease, background-color 0.5s ease;
     cursor: pointer;
 }
-.bullet-control-bullet-active{
+
+.bullet-control-bullet-active {
     width: 60px;
-    background-color: #2121213d;
+    border: 2px solid #212121bb;
+    background-color: #f3f3f3bf;
 }
-.carousel-content{
+
+.carousel-content {
     position: absolute;
     width: 100%;
     height: 100%;
+    z-index: 10;
 }
-.carousel-items{
+
+.carousel-items {
     padding: 0;
     margin: 0;
     position: absolute;
@@ -996,20 +1012,61 @@ footer .copy{
     align-items: center;
     justify-content: center;
 }
-.hero-card{
+
+.hero-card {
     position: absolute;
     width: 1000px;
     height: 100%;
     background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    pointer-events: none;
 }
-li{
+
+.hero-card-active {
+    z-index: 20;
+    pointer-events: auto;
+}
+
+li {
     list-style: none;
 }
-#hero-card3{
+
+#hero-card3 {
     background-color: rgb(251, 193, 32) !important;
     transform: translateX(-1100px);
 }
-#hero-card2{
+
+#hero-card2 {
     background-color: #5170ff !important;
     transform: translateX(1100px);
+}
+
+.image-hero {
+    width: 100%;
+}
+
+.hero-card h3 {
+    width: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    top: 10px;
+    left: 10px;
+    background-color: #fff;
+    position: absolute;
+    font-size: 26px;
+    z-index: 25;
+}
+
+.image-link {
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    cursor: pointer;
+    position: relative;
 }
