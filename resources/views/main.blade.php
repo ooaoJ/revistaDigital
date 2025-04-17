@@ -110,72 +110,101 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    const cards = document.querySelectorAll('.hero-card');
-    const leftButton = document.getElementById('left');
-    const rightButton = document.getElementById('right');
+    document.addEventListener('DOMContentLoaded', () => {
+      const cartas = Array.from(document.querySelectorAll('.hero-card'));
+      const botaoEsquerda = document.getElementById('left');
+      const botaoDireita  = document.getElementById('right');
+      const bolinhas = Array.from(document.querySelectorAll('.bullet-control-bullet'));
+  
+      const intervalo = 8000;
+      const estados = [
+        [  0,  1, -1 ],
+        [  1, -1,  0 ],
+        [ -1,  0,  1 ]
+      ];
+  
+      let estadoAtual    = 0;
+      let estadoAnterior = 0;
+      let idIntervalo;
+  
+      function transformarPara(posicao) {
+        if (posicao ===  0) return 'translateX(0)';
+        if (posicao ===  1) return 'translateX(1100px)';
+        if (posicao === -1) return 'translateX(-1100px)';
+      }
+  
+      function atualizarCarrossel(antigo) {
+        const posicoesNovas = estados[estadoAtual];
+        const posicoesAntigas = estados[antigo];
+  
+        cartas.forEach((carta, i) => {
+          const de   = posicoesAntigas[i];
+          const para = posicoesNovas[i];
+  
+          if (Math.abs(de - para) === 2) {
+            carta.style.transition = 'none';
+            carta.style.transform  = transformarPara(para);
+            void carta.offsetWidth;
+            carta.style.transition = 'transform 0.5s ease-in-out';
+          } else {
+            carta.style.transition = 'transform 0.5s ease-in-out';
+            carta.style.transform  = transformarPara(para);
+          }
+  
+          carta.classList.toggle('hero-card-active', para === 0);
+        });
+  
+        bolinhas.forEach((b, i) => {
+          b.classList.toggle('bullet-control-bullet-active', i === estadoAtual);
+        });
+  
+        estadoAnterior = estadoAtual;
+      }
+  
+      function definirCarrossel(idBolinhas) {
+        const idx = parseInt(idBolinhas.split('-').pop(), 10) - 1;
+        if (isNaN(idx)) return;
+        const antigo = estadoAtual;
+        estadoAtual = idx;
+        atualizarCarrossel(antigo);
+      }
+  
+      function iniciarAutoPlay() {
+        idIntervalo = setInterval(() => {
+          const antigo = estadoAtual;
+          estadoAtual = (antigo + 1) % estados.length;
+          atualizarCarrossel(antigo);
+        }, intervalo);
+      }
+  
+      function reiniciarAutoPlay() {
+        clearInterval(idIntervalo);
+        iniciarAutoPlay();
+      }
 
-    // Definindo os estados de posição para os 3 cards:
-    const states = [
-      [0, 1, -1],   // Estado 0: card1 no centro, card2 à direita, card3 à esquerda
-      [1, -1, 0],   // Estado 1: card1 à direita, card2 à esquerda, card3 no centro
-      [-1, 0, 1]    // Estado 2: card1 à esquerda, card2 no centro, card3 à direita
-    ];
-    let currentState = 0;
-
-    // Converte os valores para transformações CSS:
-    function transformFor(val) {
-      if (val === 0) return "translateX(0)";
-      if (val === 1) return "translateX(1100px)";
-      if (val === -1) return "translateX(-1100px)";
-    }
-
-    // Função que atualiza o carrossel e os bullets
-    function updateCarousel() {
-      const posValues = states[currentState];
-      cards.forEach((card, index) => {
-        card.style.transform = transformFor(posValues[index]);
-        if (posValues[index] === 0) {
-          card.classList.add('hero-card-active');
-        } else {
-          card.classList.remove('hero-card-active');
-        }
+      botaoDireita.addEventListener('click', () => {
+        const antigo = estadoAtual;
+        estadoAtual = (antigo + 1) % estados.length;
+        atualizarCarrossel(antigo);
+        reiniciarAutoPlay();
       });
-
-      // Atualiza os bullets:
-      const bullets = document.querySelectorAll('.bullet-control-bullet');
-      bullets.forEach((bullet, index) => {
-        if (index === currentState) {
-          bullet.classList.add('bullet-control-bullet-active');
-        } else {
-          bullet.classList.remove('bullet-control-bullet-active');
-        }
+  
+      botaoEsquerda.addEventListener('click', () => {
+        const antigo = estadoAtual;
+        estadoAtual = (antigo - 1 + estados.length) % estados.length;
+        atualizarCarrossel(antigo);
+        reiniciarAutoPlay();
       });
-    }
-
-    // Clique no botão direito: avança o estado
-    rightButton.addEventListener('click', () => {
-      currentState = (currentState + 1) % states.length;
-      updateCarousel();
+  
+      bolinhas.forEach(b => {
+        b.addEventListener('click', () => {
+          definirCarrossel(b.id);
+          reiniciarAutoPlay();
+        });
+      });
+  
+      iniciarAutoPlay();
     });
-
-    // Clique no botão esquerdo: retrocede o estado
-    leftButton.addEventListener('click', () => {
-      currentState = (currentState - 1 + states.length) % states.length;
-      updateCarousel();
-    });
-
-    // Função chamada quando um bullet é clicado. O ID deve ser do tipo "bullet-control-X"
-    function setCarousel(bulletId) {
-      const parts = bulletId.split('-');
-      if (parts.length < 3) return;
-      // Converte o número do bullet para índice (0, 1 ou 2)
-      const bulletIndex = parseInt(parts[2]) - 1;
-      currentState = bulletIndex;
-      updateCarousel();
-    }
-
-    updateCarousel();
-  </script>
+  </script>  
 </body>
-
 </html>

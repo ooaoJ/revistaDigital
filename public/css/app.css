@@ -899,7 +899,7 @@ footer .copy{
     text-align: center;
 }
 .text-notice {
-    font-size: 18px !important;
+    font-size: 20px !important;
     white-space: pre-wrap;     
     word-wrap: break-word;    
     overflow-wrap: break-word; 
@@ -1014,6 +1014,8 @@ footer .copy{
 }
 
 .hero-card {
+    overflow: hidden;
+    border-radius: 10px;
     position: absolute;
     width: 1000px;
     height: 100%;
@@ -1023,7 +1025,11 @@ footer .copy{
     justify-content: center;
     z-index: 10;
     pointer-events: none;
+    /* força otimização e declaração correta da transição: */
+    will-change: transform;
+    transition: transform 0.5s ease-in-out;
 }
+
 
 .hero-card-active {
     z-index: 20;
@@ -1035,12 +1041,12 @@ li {
 }
 
 #hero-card3 {
-    background-color: rgb(251, 193, 32) !important;
+    background-color: yellow !important;
     transform: translateX(-1100px);
 }
 
 #hero-card2 {
-    background-color: #5170ff !important;
+    background-color: greenyellow !important;
     transform: translateX(1100px);
 }
 
@@ -1057,10 +1063,12 @@ li {
     padding: 5px;
     top: 10px;
     left: 10px;
-    background-color: #fff;
+    background-color: #ffffffc4;
+    border-radius: 0 10px 10px 0;
     position: absolute;
     font-size: 26px;
     z-index: 25;
+    color: #212121;
 }
 
 .image-link {
@@ -1069,4 +1077,7 @@ li {
     z-index: 20;
     cursor: pointer;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

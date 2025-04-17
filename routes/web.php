@@ -36,7 +36,7 @@ Route::get('/register-page', function () {
 
 // Rota para chamar a pagina principal da aplicação
 Route::get('/main-page', function () {
-    $noticias = Noticia::orderBy('created_at', 'desc')->limit(3)->get();
+    $noticias = Noticia::where('status', 1)->orderBy('created_at', 'desc')->limit(3)->get();
     return view('main', compact('noticias'));
 })->name('main-page')->middleware('auth');
 

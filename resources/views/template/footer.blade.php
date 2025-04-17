@@ -30,8 +30,6 @@
         <p>Copyright &copy;2025; Designed by NextUs</p>
     </div>
 </footer>
-
-<!-- Modal: Contato -->
 <div class="custom-modal" id="modal-contato">
     <div class="custom-modal-content">
         <span class="close">&times;</span>
@@ -40,8 +38,6 @@
         <p>Conta no GitHub: <a href="https://github.com/ooaoJ">GitHub</a><br>Email: joao.sperandio@aluno.senai.com</p>
     </div>
 </div>
-
-<!-- Modal: Sobre Nós -->
 <div class="custom-modal" id="modal-sobre">
     <div class="custom-modal-content">
         <span class="close">&times;</span>
@@ -49,8 +45,6 @@
         <p>A Revista NextUs é uma revista digital inovadora feita para conectar nossa escola. Trazemos matérias, novidades, área kids e muito mais, sempre com um design moderno e acessível. Nosso objetivo é informar, envolver e aproximar a comunidade escolar de forma criativa e interativa.</p>
     </div>
 </div>
-
-<!-- Modal: Política de Privacidade -->
 <div class="custom-modal" id="modal-politica">
     <div class="custom-modal-content">
         <span class="close">&times;</span>
