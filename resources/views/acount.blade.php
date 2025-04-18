@@ -5,11 +5,6 @@
         @include('template.nav')
         @if(Auth::user()->nivel === 0)
             <main class="acount-main nivel-0" id="nivel0-main">
-                <button class="btn-voltar">
-                    <p>
-                        <i class="bi bi-arrow-left"></i>
-                    </p>
-                </button>
                 <div class="profile-container">
                     <p class="profile-container-title">Meu Perfil</p>
                     <div class="profile-infos">
@@ -37,11 +32,6 @@
         @endif
         @if(Auth::user()->nivel === 1)
             <main class="acount-main nivel-1" id="nivel1-main">
-                <button class="btn-voltar">
-                    <p>
-                        <i class="bi bi-arrow-left"></i>
-                    </p>
-                </button>
                 <div class="profile-container">
                     <p class="profile-container-title profile-container-title-orange">Criar Postagem</p>
                     <div class="profile-infos">
@@ -106,11 +96,6 @@
         @endif
         @if(Auth::user()->nivel === 2)
             <main class="acount-main w-100" id="nivel2-main">
-                <button class="btn-voltar">
-                    <p>
-                        <i class="bi bi-arrow-left"></i>
-                    </p>
-                </button>
                 <div class="profile-container w-100 h-100">
                     <div class="profile-pend">
                         <div class="profile-pend-top">
@@ -154,11 +139,6 @@
         @endif
         @if(Auth::user()->nivel === 4)
             <main class="acount-main w-100" id="nivel4-main">
-                <button class="btn-voltar">
-                    <p>
-                        <i class="bi bi-arrow-left"></i>
-                    </p>
-                </button>
                 <div class="profile-container admin-container">
                     <div class="admin-painel">
                         <h1>Bem vindo <span class="text-primary">{{Auth::user()->nome}}</span></h1>

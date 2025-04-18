@@ -13,6 +13,8 @@
               <i class="bi bi-list fs-1 text-light"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-end" id="dropdown">
+                <li><a href="{{route('main-page')}}" class="dropdown-item"><i class="bi bi-house"></i> Home</a></li>
+                <li><hr class="dropdown-divider"></li>
                 <li><a href="{{route('perfil-usuario')}}" class="dropdown-item"><i class="bi bi-person"></i> Meu perfil</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a href="{{route('main-page')}}#materia-group" class="dropdown-item"><i class="bi bi-book"></i> Matérias</a></li>

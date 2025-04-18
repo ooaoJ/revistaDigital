@@ -88,7 +88,7 @@
         </form>
         <p>Já tem uma conta? <a href="{{route('tela-login')}}">Entre aqui</a></p>
     </div>
-    <p class="text-center" style="color: #dee2e667; position:absolute; top:95%;">© 2025 - Revista Digital em Desenvolvimento. Todos os direitos reservados.</p>
+    <p class="w-75 text-center" style="color: #dee2e667; position:absolute; top:90%;">© 2025 - Revista Digital em Desenvolvimento. Todos os direitos reservados.</p>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

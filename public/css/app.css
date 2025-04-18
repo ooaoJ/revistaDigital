@@ -1019,13 +1019,11 @@ footer .copy{
     position: absolute;
     width: 1000px;
     height: 100%;
-    background-color: red;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 10;
     pointer-events: none;
-    /* força otimização e declaração correta da transição: */
     will-change: transform;
     transition: transform 0.5s ease-in-out;
 }
@@ -1061,7 +1059,7 @@ li {
     align-items: center;
     justify-content: center;
     padding: 5px;
-    top: 10px;
+    top: 30px;
     left: 10px;
     background-color: #ffffffc4;
     border-radius: 0 10px 10px 0;

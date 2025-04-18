@@ -3,7 +3,7 @@
 <body>
   <div class="w-100 h-100 body-container d-flex flex-column justify-content-center">
     @include('template.nav')
-    <main class="mt-3 w-100 h-100">
+    <main class="mt-3 w-100 h-100 d-flex flex-column align-items-center justify-content-center">
       <div class="carousel-container" id="carousel">
         <div class="carousel-content">
           <ul class="carousel-items">

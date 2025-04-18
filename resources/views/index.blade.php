@@ -1,6 +1,6 @@
 @include('template.head')
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
-<body class="h-100 d-flex flex-column align-items-center justify-content-center">
+<body class="d-flex flex-column align-items-center justify-content-center">
     <div class="background-color" id="bg1"></div>
     <a class="button-top" id="button-access" href="{{route('tela-login')}}">
         <button class="btn btn-outline-light btn-lg">Acessar</button>
