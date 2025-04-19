@@ -24,7 +24,7 @@
             <div onclick="setCarousel(this.id)" class="bullet-control-bullet bullet-control-bullet-active"
               id="bullet-control-1"></div>
             <div onclick="setCarousel(this.id)" class="bullet-control-bullet" id="bullet-control-2"></div>
-            <div onclick="setCarousel(this.id)" class="bullet-control-bullet" id="x'bullet-control-3"></div>
+            <div onclick="setCarousel(this.id)" class="bullet-control-bullet" id="bullet-control-3"></div>
           </div>
         </div>
       </div>
@@ -105,6 +105,30 @@
           </div>
         </div>
       </section>
+      <div class="carousel-container" id="carousel2">
+        <div class="carousel-content">
+          <ul class="carousel-items">
+            @foreach ($noticiasFiltro as $noticia)
+            <li id="hero-card{{ $loop->iteration }}" class="hero-card {{ $loop->first ? 'hero-card-active' : ''}}">
+              <a href="{{ route('noticia-show', $noticia->id) }}" class="w-100 h-100 image-link">
+                <img src="{{ asset('storage/' . $noticia->imagem) }}" alt="{{ $noticia->titulo }}" class="image-hero">
+                <h3>{{ $noticia->titulo }}</h3>
+              </a>
+            </li>
+            @endforeach
+          </ul>
+        </div>
+        <div class="carousel-controler">
+          <div id="left2" class="button-controler"><i class="bi bi-arrow-left"></i></div>
+          <div id="right2" class="button-controler"><i class="bi bi-arrow-right"></i></div>
+          <div id="bullet-control">
+            <div onclick="setCarousel2(this.id)" class="bullet-control-bullet bullet-control-bullet-active"
+              id="bullet-control-1"></div>
+            <div onclick="setCarousel2(this.id)" class="bullet-control-bullet" id="bullet-control-2"></div>
+            <div onclick="setCarousel2(this.id)" class="bullet-control-bullet" id="bullet-control-3"></div>
+          </div>
+        </div>
+      </div>
     </main>
     @include('template.footer')
   </div>
@@ -205,6 +229,90 @@
   
       iniciarAutoPlay();
     });
-  </script>  
+
+
+    // carrossel 2
+
+    const cartas2 = Array.from(document.querySelectorAll('#carousel2 .hero-card'));
+    const botaoEsquerda2 = document.getElementById('left2');
+    const botaoDireita2  = document.getElementById('right2');
+    const bolinhas2 = Array.from(document.querySelectorAll('#carousel2 .bullet-control-bullet'));
+
+    let estadoAtual2    = 0;
+    let estadoAnterior2 = 0;
+    let idIntervalo2;
+
+    function atualizarCarrossel2(antigo) {
+      const posicoesNovas = estados[estadoAtual2];
+      const posicoesAntigas = estados[estadoAnterior2];
+
+      cartas2.forEach((carta, i) => {
+        const de   = posicoesAntigas[i];
+        const para = posicoesNovas[i];
+
+        if (Math.abs(de - para) === 2) {
+          carta.style.transition = 'none';
+          carta.style.transform  = transformarPara(para);
+          void carta.offsetWidth;
+          carta.style.transition = 'transform 0.5s ease-in-out';
+        } else {
+          carta.style.transition = 'transform 0.5s ease-in-out';
+          carta.style.transform  = transformarPara(para);
+        }
+
+        carta.classList.toggle('hero-card-active', para === 0);
+      });
+
+      bolinhas2.forEach((b, i) => {
+        b.classList.toggle('bullet-control-bullet-active', i === estadoAtual2);
+      });
+
+      estadoAnterior2 = estadoAtual2;
+    }
+
+    function definirCarrossel2(idBolinhas) {
+      const idx = parseInt(idBolinhas.split('-').pop(), 10) - 1;
+      if (isNaN(idx)) return;
+      const antigo = estadoAtual2;
+      estadoAtual2 = idx;
+      atualizarCarrossel2(antigo);
+    }
+
+    function iniciarAutoPlay2() {
+      idIntervalo2 = setInterval(() => {
+        const antigo = estadoAtual2;
+        estadoAtual2 = (antigo + 1) % estados.length;
+        atualizarCarrossel2(antigo);
+      }, intervalo);
+    }
+
+    function reiniciarAutoPlay2() {
+      clearInterval(idIntervalo2);
+      iniciarAutoPlay2();
+    }
+
+    botaoDireita2.addEventListener('click', () => {
+      const antigo = estadoAtual2;
+      estadoAtual2 = (antigo + 1) % estados.length;
+      atualizarCarrossel2(antigo);
+      reiniciarAutoPlay2();
+    });
+
+    botaoEsquerda2.addEventListener('click', () => {
+      const antigo = estadoAtual2;
+      estadoAtual2 = (antigo - 1 + estados.length) % estados.length;
+      atualizarCarrossel2(antigo);
+      reiniciarAutoPlay2();
+    });
+
+    bolinhas2.forEach(b => {
+      b.addEventListener('click', () => {
+        definirCarrossel2(b.id);
+        reiniciarAutoPlay2();
+      });
+    });
+
+    iniciarAutoPlay2();
+  </script>
 </body>
 </html>

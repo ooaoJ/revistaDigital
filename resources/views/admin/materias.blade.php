@@ -1,5 +1,14 @@
 @include('template.head')
 <style>
+body,html{
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+}
+main {
+    min-height: 702px;
+}
+
 #modal {
     display: none;
     position: fixed;
@@ -21,7 +30,8 @@
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    width: 100%;
+    width: 90%;
+    height: 200px;
     max-width: 600px;
     position: relative;
 }
@@ -40,7 +50,7 @@
 </style>
 
 <body>
-<div>
+<div class="h-100">
     @include('template.nav')
 
     <main class="mt-3 mb-5 container">

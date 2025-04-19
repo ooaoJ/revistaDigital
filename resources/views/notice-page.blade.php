@@ -6,7 +6,7 @@
             <div class="noticia-container-guide">
                 <p class="fs-5"><a class="notice-guide-link" href="{{route('materia-show', $noticia->materia_id)}}">{{$noticia->materia->nome}} </a>&gt; {{$noticia->titulo}}</p>
             </div>
-            <div class="notice-upper mt-5 noticia-container-info d-flex align-items-center">
+            <div class="notice-upper mt-4 noticia-container-info d-flex align-items-center">
                 <div class="notice-title">
                     <h1>{{$noticia->titulo}}</h1>
                     <h2>{{$noticia->subtitulo}}</h2>
@@ -14,13 +14,13 @@
                 <div class="notice-user">
                     <img src="{{asset('images/users/usuario' . $noticia->user->nivel . '.png')}}" alt="Imagem do Usuário">
                     <div class="notice-user-text">
-                        <p>Por: {{$noticia->user->nome}}</p>
-                        <p>{{$noticia->created_at->format('d/m/Y')}}</p>
+                        <p>Publicada por: {{$noticia->user->nome}}</p>
+                        <p>Data: {{$noticia->created_at->format('d/m/Y')}}</p>
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="notice-content mt-5">
+            <div class="notice-content mt-4">
                 <div class="image-notice">
                     <img class="rounded" src="{{ asset('storage/' . $noticia->imagem) }}" alt="Imagem da Notícia">
                     <p class="image-description">"{{$noticia->subtitulo}}"</p>

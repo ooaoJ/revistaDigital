@@ -36,8 +36,9 @@ Route::get('/register-page', function () {
 
 // Rota para chamar a pagina principal da aplicação
 Route::get('/main-page', function () {
-    $noticias = Noticia::where('status', 1)->orderBy('created_at', 'desc')->limit(3)->get();
-    return view('main', compact('noticias'));
+    $noticias = Noticia::where('status', 1)->where('materia_id', '!=', 13)->orderBy('created_at', 'desc')->limit(3)->get();
+    $noticiasFiltro = Noticia::where('materia_id', 13)->orderBy('created_at', 'desc')->limit(3)->get();
+    return view('main', compact('noticias', 'noticiasFiltro'));
 })->name('main-page')->middleware('auth');
 
 // Rota para chamar todos os usuarios na tela de painel de usuarios
@@ -114,13 +115,8 @@ Route::get('/materias', function(){
 Route::post('/materias', [MateriaController::class, 'store'])->name('materias-store');
 
 
-Route::get('/noticias', function(){
-    if(Auth::user()->nivel != 4){
-        return redirect()->route('main-page');
-    }
-    $noticias = Noticia::all();
-    $materias = Materia::all();
-    return view('admin.noticias', compact('noticias' , 'materias')); 
-})->name('painel-noticias');
+Route::get('/noticias', [NoticiaController::class, 'adminIndex'])
+     ->name('painel-noticias')
+     ->middleware('auth');
 
 Route::delete('/materias/{id}', [MateriaController::class, 'destroy'])->name('materias.destroy')->middleware('auth');;

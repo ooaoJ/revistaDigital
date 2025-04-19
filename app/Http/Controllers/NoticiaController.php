@@ -73,4 +73,24 @@ class NoticiaController extends Controller
         $noticia = Noticia::with('materia', 'user')->findOrFail($id);
         return view('notice-page', compact('noticia'));
     }
+
+    public function adminIndex(Request $request)
+    {
+        if (Auth::user()->nivel != 4) {
+            return redirect()->route('main-page');
+        }
+        
+        $query = Noticia::with('user', 'materia');
+
+        if ($request->filled('materia_id')) {
+            $query->where('materia_id', $request->materia_id);
+        }
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+        $noticias = $query->orderBy('created_at', 'desc')->get();
+        $materias = Materia::all();
+
+        return view('admin.noticias', compact('noticias', 'materias'));
+    }
 }

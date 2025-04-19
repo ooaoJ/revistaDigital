@@ -140,7 +140,7 @@
         @if(Auth::user()->nivel === 4)
             <main class="acount-main w-100" id="nivel4-main">
                 <div class="profile-container admin-container">
-                    <div class="admin-painel">
+                    <div class="admin-painel" style="width: 90%;">
                         <h1>Bem vindo <span class="text-primary">{{Auth::user()->nome}}</span></h1>
                         <a href="{{route('painel-usuario')}}" class="btn btn-primary">
                             <button>Painel de Usuários <i class="bi bi-person-gear"></i></button>
