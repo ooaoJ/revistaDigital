@@ -120,3 +120,9 @@ Route::get('/noticias', [NoticiaController::class, 'adminIndex'])
      ->middleware('auth');
 
 Route::delete('/materias/{id}', [MateriaController::class, 'destroy'])->name('materias.destroy')->middleware('auth');;
+
+Route::get('/aconteceu-na-escola', function(){
+    $noticiasFiltro = Noticia::where('materia_id', 13)->get();
+    $maisNoticias = Noticia::where('status', 1)->where('materia_id' , '!=' , 13)->inRandomOrder()->limit(3)->get();
+    return view('escola', compact('noticiasFiltro', 'maisNoticias'));
+})->name('aconteceu-escola');
