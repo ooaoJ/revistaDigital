@@ -156,7 +156,6 @@
     }
   
     document.addEventListener('DOMContentLoaded', () => {
-      // --- CARROSSEL 1 ---
       const cards1   = Array.from(document.querySelectorAll('#carousel1 .hero-card'));
       const left1    = document.getElementById('left1');
       const right1   = document.getElementById('right1');
@@ -219,13 +218,10 @@
           reiniciar1();
         })
       );
-  
-      // posição inicial e start do auto-scroll
+
       atualizar1(0);
       iniciar1();
   
-  
-      // --- CARROSSEL 2 ---
       const cards2   = Array.from(document.querySelectorAll('#carousel2 .hero-card'));
       const left2    = document.getElementById('left2');
       const right2   = document.getElementById('right2');
@@ -289,7 +285,6 @@
         })
       );
   
-      // posição inicial e start do auto-scroll
       atualizar2(0);
       iniciar2();
     });
